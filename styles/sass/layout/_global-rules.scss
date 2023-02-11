@@ -1,0 +1,107 @@
+@use "../variables/colors" as *;
+
+@use "../helpers/mixins" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 0 transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: $mainColor;
+}
+body {
+  background-color: $mainBackground;
+  color: $white;
+}
+a {
+  text-decoration: none;
+}
+ul,
+ol {
+  list-style: none;
+}
+.text-main-color {
+  color: $mainColor;
+}
+.text-second-color {
+  color: $secondaryColor;
+}
+.text-white {
+  color: $white;
+}
+.text-center {
+  text-align: center;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-primary {
+  @extend %btn;
+  background-color: $mainColor;
+  border: 1px solid $mainColor;
+  color: $white;
+  &:hover {
+    background-color: transparent;
+    border-color: $mainColor;
+  }
+}
+.btn-secondary {
+  @extend %btn;
+  background-color: transparent;
+  border: 1px solid $mainColor;
+  color: $mainColor;
+  &:hover {
+    border: 1px solid $secondaryColor;
+    color: $secondaryColor;
+  }
+}
+
+%btn {
+  display: block;
+  width: fit-content;
+  padding: 1px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s linear;
+  margin: 8px;
+}
+
+$grid_cols: 12;
+.row {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  @for $i from 1 through $grid_cols {
+    .col-#{$i} {
+      flex-basis: percentage($i / $grid_cols);
+    }
+  }
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  @include breakpoints(small) {
+    width: 750px;
+  }
+  @include breakpoints(medium) {
+    width: 970px;
+  }
+  @include breakpoints(large) {
+    width: 1170px;
+  }
+}

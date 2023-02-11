@@ -6,13 +6,16 @@
     "start": "next start"
   },
   "dependencies": {
+    "@next/font": "^13.1.6",
     "axios": "^1.3.2",
     "mongodb": "^4.8.1",
     "next": "latest",
     "next-sitemap": "^3.1.52",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.7.1",
     "react-paginate": "^8.1.4",
+    "swiper": "^9.0.4",
     "typewriter-effect": "^2.19.0"
   },
   "devDependencies": {

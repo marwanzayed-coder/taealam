@@ -1,0 +1,125 @@
+@use "../variables/colors" as *;
+@use "../helpers/mixins" as *;
+
+.navbar {
+  border-bottom: 1px solid $secondaryBackground;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: {
+      top: 10px;
+      bottom: 10px;
+    }
+    position: relative;
+    .links {
+      &.open {
+        ul {
+          @include breakpoints(mobile) {
+            top: 73px;
+          }
+        }
+      }
+      ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        transition: all 0.7s linear;
+        @include breakpoints(mobile) {
+          display: flex;
+          position: absolute;
+          right: 0;
+          top: -200px;
+          background: #000;
+          width: 100%;
+          padding: 15px;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        li {
+          a {
+            color: #fff;
+            font-size: 17px;
+            transition: color 0.3s linear;
+            &:hover {
+              color: $mainColor;
+            }
+          }
+          &.active {
+            a {
+              color: $mainColor;
+            }
+          }
+        }
+      }
+      .bars {
+        position: relative;
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        cursor: pointer;
+        @include breakpoints(mobile) {
+          display: flex;
+        }
+        span {
+          display: inline-block;
+          height: 1px;
+          background: $mainColor;
+          transition: width 0.3s linear;
+          &:nth-child(1) {
+            width: 20px;
+          }
+          &:nth-child(2) {
+            width: 25px;
+          }
+          &:nth-child(3) {
+            width: 30px;
+          }
+        }
+        &:hover {
+          span {
+            width: 30px;
+          }
+        }
+        &.open {
+          gap: 0;
+          span {
+            &:nth-child(1) {
+              width: 30px;
+              transform: rotate(45deg);
+            }
+            &:nth-child(2) {
+              width: 30px;
+              transform: rotate(-45deg);
+            }
+            &:nth-child(3) {
+              width: 0px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .auth {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.7s linear;
+    &.open {
+      @include breakpoints(mobile) {
+        top: 231px;
+      }
+    }
+    @include breakpoints(mobile) {
+      display: flex;
+      position: absolute;
+      right: 0;
+      top: -200px;
+      background: #000;
+      width: 100%;
+      padding: 15px;
+    }
+  }
+}
