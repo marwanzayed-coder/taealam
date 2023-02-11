@@ -6,14 +6,19 @@
     "start": "next start"
   },
   "dependencies": {
+    "axios": "^1.3.2",
     "mongodb": "^4.8.1",
     "next": "latest",
+    "next-sitemap": "^3.1.52",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-paginate": "^8.1.4",
+    "typewriter-effect": "^2.19.0"
   },
   "devDependencies": {
     "@types/node": "18.7.5",
     "@types/react": "16.9.17",
+    "sass": "^1.58.0",
     "typescript": "4.6.3"
   }
 }
